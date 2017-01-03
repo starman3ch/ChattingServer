@@ -19,7 +19,7 @@ struct PACKET_HEADER
 
 enum Command
 {
-  REQ_SINGUP = 1,
+  REQ_SIGNUP = 1,
   RES_SIGNUP,
   REQ_LOGIN,
   RES_LOGIN,
@@ -48,7 +48,7 @@ struct PKT_REQ_SIGNUP : public PACKET_HEADER
 {
   void Init()
   {
-    nCmd = REQ_SINGUP;
+    nCmd = REQ_SIGNUP;
     nSize = sizeof(PKT_REQ_SIGNUP);
     // memset( szName, 0, MAX_NAME_LEN );
   }
@@ -65,7 +65,7 @@ struct PKT_RES_SIGNUP : public PACKET_HEADER
     nCmd = RES_SIGNUP;
     nSize = sizeof(PKT_RES_SIGNUP);
   }
-  int resultCode;
+  int resultCode; // -2 : 이미 존재하는 ID,     0 : 실패,    1 : 성공
 };
 
 struct PKT_REQ_LOGIN : public PACKET_HEADER

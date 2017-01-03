@@ -10,7 +10,8 @@
 
 class Session;
 
-class ChatServer{
+class ChatServer
+{
 private:
   bool m_bIsAccepting;
 
